@@ -3,7 +3,7 @@ from tkinter import filedialog
 from moviepy.editor import VideoFileClip, ImageSequenceClip
 import random
 
-def process_video(video_path, start_time:float, end_time:float, extendSeconds:int):
+def process_video(video_path, start_time:float, end_time:float):
     # Process the video from start_time to end_time
     clip = VideoFileClip(video_path)
 
@@ -16,7 +16,7 @@ def process_video(video_path, start_time:float, end_time:float, extendSeconds:in
 
     n = 0
     maxIter = 1000
-    fwdProb = 0.55
+    fwdProb = 0.5
     for _ in range(maxIter):
         if random.random() < fwdProb:
             n += 1
@@ -38,7 +38,6 @@ def process_video(video_path, start_time:float, end_time:float, extendSeconds:in
 
     # Notify the user that processing is complete
     result_label.config(text="Video processing complete!")
-
 
 def select_video():
     # Open file dialog to select a video file
